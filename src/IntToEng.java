@@ -21,17 +21,21 @@
 	
 	    static String translateEng(int n) {
 
-	    	String[] a={"zero","one","two","three","four","five","six","seven","eight","night","ten",
+	    	String[] a={"zero","one","two","three","four","five","six","seven","eight","nine","ten",
 	    			"eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen"};
 	    	String[] b={"twenty","thirty","fourty","fifty","sixty","seventy","eighty","ninety"};
 	    	
-	    	if(n<=19){
+	if(n<=19){
 	    	return a[n];
 	}
 	if(n>=20&&n<=99){
 		String n1=String.valueOf(n);
-		n1.substring(1,2);
-	        return b[n-2];
+		int x1 = Integer.parseInt(n1.substring(0, 1));
+		int x2 = Integer.parseInt(n1.substring(1, 2));
+		if(x2==0){
+			return b[x1-2];
+		}
+	        return b[x1-2]+" "+a[x2];
 	}
 	 return " ";   
 	    }
